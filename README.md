@@ -70,14 +70,14 @@ train_path = my_data_dir+'/train/'
 os.listdir(train_path)
 len(os.listdir(train_path+'/uninfected/'))
 len(os.listdir(train_path+'/parasitized/'))
-os.listdir(train_path+'/parasitized')[5604]
+os.listdir(train_path+'/parasitized')[5600]
 para_img= imread(train_path+
                  '/parasitized/'+
-                 os.listdir(train_path+'/parasitized')[5604])
+                 os.listdir(train_path+'/parasitized')[5600])
 plt.imshow(para_img)
 uninfe_img= imread(train_path+
                  '/uninfected/'+
-                 os.listdir(train_path+'/uninfected')[5604])
+                 os.listdir(train_path+'/uninfected')[5600])
 plt.imshow(uninfe_img)
 # Checking the image dimensions
 dim1 = []
@@ -128,17 +128,16 @@ model.compile(loss='binary_crossentropy',
                                horizontal_flip=True, # Allo horizontal flipping
                                fill_mode='nearest' # Fill in missing pixels with the nearest filled value
                               )
-  batch_size = 16
   train_image_gen = image_gen.flow_from_directory(train_path,
                                                target_size=image_shape[:2],
                                                 color_mode='rgb',
-                                               batch_size=batch_size,
+                                               batch_size=16,
                                                class_mode='binary')
   len(train_image_gen.classes)
   test_image_gen = image_gen.flow_from_directory(test_path,
                                                target_size=image_shape[:2],
                                                color_mode='rgb',
-                                               batch_size=batch_size,
+                                               batch_size=16,
                                                class_mode='binary',shuffle=False)
  train_image_gen.class_indices
  results = model.fit(train_image_gen,epochs=4,
