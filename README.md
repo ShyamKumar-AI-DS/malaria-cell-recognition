@@ -13,7 +13,6 @@ Malaria dataset of 27,558 cell images with an equal number of parasitized and un
 
 ![ex8dl](https://github.com/BHUVANESHWAR-BHUVIOP/malaria-cell-recognition/assets/94155099/971dc147-59a3-411c-ac14-d09cf89d24e8)
 
-<br>
 ## DESIGN STEPS:
 
 ### STEP 1:
